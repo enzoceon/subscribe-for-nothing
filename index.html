@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Payment Plan UI</title>
+    <title>MemeMode Payment Plans</title>
     <style>
+        /* General Styles */
         body {
             background-color: #0D0D0D;
             color: #FFFFFF;
@@ -19,13 +20,13 @@
 
         .container {
             background: #141414;
-            border: 2px solid #40E0D0; 
+            border: 2px solid #40E0D0;
             border-radius: 20px;
-            padding: 2px 30px 25px;
+            padding: 20px 30px;
             width: 90%;
-            max-width: 380px;
+            max-width: 400px;
             text-align: center;
-            box-shadow: 0 0 40px rgba(64, 224, 208, 0.8); 
+            box-shadow: 0 0 40px rgba(64, 224, 208, 0.8);
         }
 
         h1 {
@@ -46,9 +47,15 @@
             border: 2px solid #40E0D0;
             border-radius: 15px;
             padding: 20px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-align: left;
             box-shadow: 0 0 25px rgba(64, 224, 208, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .plan:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 40px rgba(64, 224, 208, 0.8);
         }
 
         .plan-header {
@@ -89,6 +96,14 @@
             position: relative;
             overflow: hidden;
             animation: glow 2s infinite alternate ease-in-out;
+            margin-top: 10px;
+        }
+
+        .subscribe-btn:hover {
+            background-color: #40E0D0;
+            color: #000;
+            animation: none;
+            box-shadow: 0 0 60px #40E0D0, 0 0 40px #40E0D0 inset;
         }
 
         /* Glowing Border Animation */
@@ -101,11 +116,37 @@
             }
         }
 
-        .subscribe-btn:hover {
-            background-color: #40E0D0;
-            color: #000;
-            animation: none; /* Stop the glow animation on hover */
-            box-shadow: 0 0 60px #40E0D0, 0 0 40px #40E0D0 inset;
+        /* What You Get Section */
+        .features {
+            text-align: left;
+            margin-top: 25px;
+        }
+
+        .features h3 {
+            color: #40E0D0;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .features ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .features ul li {
+            color: #A0A0A0;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .features ul li::before {
+            content: "•";
+            color: #40E0D0;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
         }
 
         /* Disable Right-Click */
@@ -128,6 +169,7 @@
         <h1>MemeMode</h1>
         <div class="subtitle">Subscribe for Nothing</div>
 
+        <!-- Annual Plan -->
         <div class="plan annual">
             <div class="plan-header">
                 <span>Annual Plan</span>
@@ -137,6 +179,24 @@
             <p>₹1499 one-time payment</p>
         </div>
 
+        <!-- What You Get Section -->
+        <div class="features">
+            <h3>What You Get with Our Plan:</h3>
+            <ul>
+                <li>Unlimited access to nothing</li>
+                <li>Premium-quality emptiness</li>
+                <li>24/7 support for imaginary problems</li>
+                <li>Zero ads, zero content</li>
+                <li>VIP membership to the 'Do Nothing Club'</li>
+                <li>Lifetime supply of absolutely nothing</li>
+                <li>Instant access to infinite possibilities</li>
+                <li>Guaranteed silence, no notifications</li>
+                <li>Stress-free experience with zero features</li>
+                <li>Satisfaction guaranteed, no refunds</li>
+            </ul>
+        </div>
+
+        <!-- Subscribe Button -->
         <a href="https://rzp.io/rzp/kp0gQKut" class="subscribe-btn" target="_blank">Subscribe for ₹1499</a>
     </div>
 </body>
