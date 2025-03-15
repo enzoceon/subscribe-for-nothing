@@ -15,14 +15,14 @@
             align-items: center;
             justify-content: center;
             margin: 0;
-            padding: 20px;
+            padding: 0 20px; /* Side padding remains, top/bottom padding removed */
         }
 
         .container {
             background: #141414;
             border: 2px solid #40E0D0;
             border-radius: 20px;
-            padding: 20px 30px;
+            padding: 2px 30px 25px; /* Reduced top padding (10px), sides (30px), bottom (25px) */
             width: 90%;
             max-width: 400px;
             text-align: center;
@@ -30,7 +30,7 @@
         }
 
         h1 {
-            font-size: 2.2rem;
+            font-size: 2rem; /* Slightly smaller font size */
             margin-bottom: 5px;
             color: #40E0D0;
             text-shadow: 0 0 20px rgba(64, 224, 208, 0.8);
@@ -38,16 +38,16 @@
 
         .subtitle {
             color: #B0B0B0;
-            margin-bottom: 25px;
-            font-weight: 500;
+            margin-bottom: 15px; /* Adjusted margin */
+            font-size: 0.9rem; /* Smaller font size */
         }
 
         .plan {
             background: #1A1A1A;
             border: 2px solid #40E0D0;
             border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
+            padding: 15px; /* Reduced padding */
+            margin-bottom: 15px; /* Adjusted margin */
             text-align: left;
             box-shadow: 0 0 25px rgba(64, 224, 208, 0.5);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -63,15 +63,18 @@
             justify-content: space-between;
             font-weight: bold;
             color: #40E0D0;
+            font-size: 0.9rem; /* Smaller font size */
         }
 
         h2 {
             margin: 5px 0;
             color: #FFFFFF;
+            font-size: 1.2rem; /* Smaller font size */
         }
 
         p {
             color: #A0A0A0;
+            font-size: 0.8rem; /* Smaller font size */
         }
 
         .discount {
@@ -79,7 +82,7 @@
             color: #40E0D0;
             border-radius: 5px;
             padding: 2px 8px;
-            font-size: 0.8rem;
+            font-size: 0.7rem; /* Smaller font size */
         }
 
         .subscribe-btn {
@@ -87,7 +90,7 @@
             color: #40E0D0;
             border: 2px solid #40E0D0;
             border-radius: 25px;
-            padding: 12px 45px;
+            padding: 10px 35px; /* Smaller padding */
             width: auto;
             font-weight: bold;
             cursor: pointer;
@@ -97,6 +100,7 @@
             overflow: hidden;
             animation: glow 2s infinite alternate ease-in-out;
             margin-top: 10px;
+            font-size: 0.9rem; /* Smaller font size */
         }
 
         .subscribe-btn:hover {
@@ -119,31 +123,33 @@
         /* What You Get Section */
         .features {
             text-align: left;
-            margin-top: 25px;
+            margin-top: 15px; /* Adjusted margin */
         }
 
         .features h3 {
             color: #40E0D0;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.2rem; /* Smaller font size */
+            margin-bottom: 10px; /* Adjusted margin */
         }
 
         .features ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
         }
 
         .features ul li {
             color: #A0A0A0;
-            margin-bottom: 10px;
+            margin-bottom: 8px; /* Adjusted margin */
             padding-left: 20px;
             position: relative;
+            font-size: 0.8rem; /* Smaller font size */
         }
 
         .features ul li::before {
             content: "•";
             color: #40E0D0;
-            font-size: 1.5rem;
+            font-size: 1.2rem; /* Smaller bullet size */
             position: absolute;
             left: 0;
             top: -5px;
@@ -187,8 +193,9 @@
                 <li>Premium-quality emptiness</li>
                 <li>24/7 support for imaginary problems</li>
                 <li>Zero ads, zero content</li>
-                <li>VIP membership to the hell</li>
+                <li>VIP membership to the 'Do Nothing Club'</li>
                 <li>Lifetime supply of absolutely nothing</li>
+                <li>Instant access to infinite possibilities</li>
                 <li>Guaranteed silence, no notifications</li>
                 <li>Stress-free experience with zero features</li>
                 <li>Satisfaction guaranteed, no refunds</li>
