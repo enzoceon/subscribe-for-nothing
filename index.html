@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Plan UI</title>
+    <style>
+        body {
+            background-color: #0D0D0D;
+            color: #FFFFFF;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: #141414;
+            border: 2px solid #40E0D0; 
+            border-radius: 20px;
+            padding: 2px 30px 25px;
+            width: 90%;
+            max-width: 380px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(64, 224, 208, 0.8); 
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            color: #40E0D0;
+            text-shadow: 0 0 20px rgba(64, 224, 208, 0.8);
+        }
+
+        .subtitle {
+            color: #B0B0B0;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .plan {
+            background: #1A1A1A;
+            border: 2px solid #40E0D0;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: left;
+            box-shadow: 0 0 25px rgba(64, 224, 208, 0.5);
+        }
+
+        .plan-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            color: #40E0D0;
+        }
+
+        h2 {
+            margin: 5px 0;
+            color: #FFFFFF;
+        }
+
+        p {
+            color: #A0A0A0;
+        }
+
+        .discount {
+            background-color: #205E5E;
+            color: #40E0D0;
+            border-radius: 5px;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+        }
+
+        .subscribe-btn {
+            background-color: transparent;
+            color: #40E0D0;
+            border: 2px solid #40E0D0;
+            border-radius: 25px;
+            padding: 12px 45px;
+            width: auto;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 0 30px rgba(64, 224, 208, 0.8); 
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subscribe-btn:hover {
+            background-color: #40E0D0;
+            color: #000;
+            box-shadow: 0 0 60px #40E0D0, 0 0 40px #40E0D0 inset;
+        }
+
+        /* Disable Right-Click */
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        body, img {
+            -webkit-touch-callout: none;
+            -webkit-user-drag: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>MemeMode</h1>
+        <div class="subtitle">Subscribe for Nothing</div>
+
+        <div class="plan annual">
+            <div class="plan-header">
+                <span>Annual Plan</span>
+                <span class="discount">SAVE 97%</span>
+            </div>
+            <h2>₹124 / month</h2>
+            <p>₹1499 one-time payment</p>
+        </div>
+
+        <a href="https://rzp.io/rzp/kp0gQKut" class="subscribe-btn" target="_blank">Subscribe for ₹1499</a>
+    </div>
+</body>
+</html>
