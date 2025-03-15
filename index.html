@@ -78,7 +78,7 @@
         .subscribe-btn {
             background-color: transparent;
             color: #40E0D0;
-            border: 2px solid #ff214e;
+            border: 2px solid #40E0D0;
             border-radius: 25px;
             padding: 12px 45px;
             width: auto;
@@ -86,14 +86,25 @@
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 0 30px rgba(64, 224, 208, 0.8); 
             position: relative;
             overflow: hidden;
+            animation: glow 2s infinite alternate ease-in-out;
+        }
+
+        /* Glowing Border Animation */
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px rgba(64, 224, 208, 0.6), 0 0 20px rgba(64, 224, 208, 0.4), 0 0 30px rgba(64, 224, 208, 0.2);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(64, 224, 208, 0.8), 0 0 40px rgba(64, 224, 208, 0.6), 0 0 60px rgba(64, 224, 208, 0.4);
+            }
         }
 
         .subscribe-btn:hover {
             background-color: #40E0D0;
             color: #000;
+            animation: none; /* Stop the glow animation on hover */
             box-shadow: 0 0 60px #40E0D0, 0 0 40px #40E0D0 inset;
         }
 
@@ -111,11 +122,6 @@
             -webkit-tap-highlight-color: transparent;
         }
     </style>
-    <script>
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-    </script>
 </head>
 <body>
     <div class="container">
