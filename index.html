@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Subscribe to MemeMode for exclusive plans and enjoy premium nothingness!">
     <title>MemeMode Payment Plans</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤡</text></svg>">
+    <!-- Google AdSense Code -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1941496122967255"
+        crossorigin="anonymous"></script>
     <style>
         /* General Styles */
         body {
@@ -11,18 +16,19 @@
             color: #FFFFFF;
             font-family: 'Arial', sans-serif;
             display: flex;
-            height: 100vh;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            min-height: 100vh;
             margin: 0;
-            padding: 0 20px;
+            padding: 20px;
         }
 
         .container {
             background: #141414;
             border: 2px solid #40E0D0;
             border-radius: 20px;
-            padding: 0px 30px 25px; /* Reduced top padding (10px), sides (30px), bottom (25px) */
+            padding: 20px 30px 25px;
             width: 90%;
             max-width: 400px;
             text-align: center;
@@ -30,7 +36,7 @@
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 5vw, 2rem);
             margin-bottom: 5px;
             color: #40E0D0;
             text-shadow: 0 0 20px rgba(64, 224, 208, 0.8);
@@ -39,7 +45,7 @@
         .subtitle {
             color: #B0B0B0;
             margin-bottom: 15px;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 3vw, 0.9rem);
         }
 
         .plan {
@@ -63,18 +69,18 @@
             justify-content: space-between;
             font-weight: bold;
             color: #40E0D0;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 3vw, 0.9rem);
         }
 
         h2 {
             margin: 5px 0;
             color: #FFFFFF;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 4vw, 1.2rem);
         }
 
         p {
             color: #A0A0A0;
-            font-size: 0.8rem;
+            font-size: clamp(0.7rem, 3vw, 0.8rem);
             margin: 0;
         }
 
@@ -83,13 +89,13 @@
             color: #40E0D0;
             border-radius: 5px;
             padding: 2px 8px;
-            font-size: 0.7rem;
+            font-size: clamp(0.6rem, 2.5vw, 0.7rem);
         }
 
         .subscribe-btn {
-            background: linear-gradient(45deg, #40E0D0, #20B2AA); /* Gradient effect */
-            color: #000; /* Dark text for better contrast */
-            border: none; /* Remove border */
+            background: linear-gradient(45deg, #40E0D0, #20B2AA);
+            color: #000;
+            border: none;
             border-radius: 25px;
             padding: 12px 45px;
             width: auto;
@@ -101,17 +107,17 @@
             overflow: hidden;
             animation: glow 2s infinite alternate ease-in-out;
             margin-top: 10px;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 3vw, 0.9rem);
             transition: background 0.3s ease, transform 0.3s ease;
         }
 
-        .subscribe-btn:hover {
-            background: linear-gradient(45deg, #20B2AA, #40E0D0); /* Reverse gradient on hover */
-            transform: scale(1.05); /* Slightly enlarge on hover */
-            animation: none; /* Stop glow animation on hover */
+        .subscribe-btn:hover,
+        .subscribe-btn:focus {
+            background: linear-gradient(45deg, #20B2AA, #40E0D0);
+            transform: scale(1.05);
+            animation: none;
         }
 
-        /* Glowing Border Animation */
         @keyframes glow {
             0% {
                 box-shadow: 0 0 10px rgba(64, 224, 208, 0.6), 0 0 20px rgba(64, 224, 208, 0.4), 0 0 30px rgba(64, 224, 208, 0.2);
@@ -121,7 +127,6 @@
             }
         }
 
-        /* What You Get Section */
         .features {
             text-align: left;
             margin-top: 15px;
@@ -129,7 +134,7 @@
 
         .features h3 {
             color: #40E0D0;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 4vw, 1.2rem);
             margin-bottom: 10px;
         }
 
@@ -144,7 +149,7 @@
             margin-bottom: 8px;
             padding-left: 20px;
             position: relative;
-            font-size: 0.8rem;
+            font-size: clamp(0.7rem, 3vw, 0.8rem);
         }
 
         .features ul li::before {
@@ -156,18 +161,20 @@
             top: -5px;
         }
 
-        /* Disable Right-Click */
-        body {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+        footer {
+            margin-top: 20px;
+            color: #B0B0B0;
+            font-size: clamp(0.7rem, 3vw, 0.8rem);
+            text-align: center;
         }
 
-        body, img {
-            -webkit-touch-callout: none;
-            -webkit-user-drag: none;
-            -webkit-tap-highlight-color: transparent;
+        footer a {
+            color: #40E0D0;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -184,6 +191,22 @@
             </div>
             <h2>₹124 / month</h2>
             <p>₹1499 one-time payment</p>
+        </div>
+
+        <!-- Ad Unit Placeholder -->
+        <div style="margin: 20px 0;">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1941496122967255"
+                crossorigin="anonymous"></script>
+            <!-- Example Ad Unit -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-1941496122967255"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
 
         <!-- What You Get Section -->
@@ -204,7 +227,12 @@
         </div>
 
         <!-- Subscribe Button -->
-        <a href="https://rzp.io/rzp/kp0gQKut" class="subscribe-btn" target="_blank">Subscribe for ₹1499</a>
+        <a href="https://rzp.io/rzp/kp0gQKut" class="subscribe-btn" target="_blank" aria-label="Subscribe for ₹1499">Subscribe for ₹1499</a>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 MemeMode. All rights reserved. | <a href="#" target="_blank">Privacy Policy</a></p>
+    </footer>
 </body>
 </html>
