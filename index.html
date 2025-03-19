@@ -6,14 +6,24 @@
     <meta name="description" content="Subscribe to MemeMode for exclusive plans and enjoy premium nothingness!">
     <title>MemeMode Payment Plans</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤡</text></svg>">
-    <!-- Google AdSense Code -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1941496122967255"
-        crossorigin="anonymous"></script>
     <style>
+        /* Disable Text Selection */
+        * {
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE/Edge */
+            user-select: none; /* Standard */
+        }
+
+        /* Remove Focus Outline (Blue Box Issue) */
+        *:focus {
+            outline: none !important;
+        }
+
         /* General Styles */
         body {
-            background-color: #0D0D0D;
-            color: #FFFFFF;
+            background-color: #0D0D0D; /* Dark mode background */
+            color: #FFFFFF; /* Light text for dark mode */
             font-family: 'Arial', sans-serif;
             display: flex;
             flex-direction: column;
@@ -22,17 +32,34 @@
             min-height: 100vh;
             margin: 0;
             padding: 20px;
+            overflow: auto;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.light-mode {
+            background-color: #F5F5F5; /* Light mode background */
+            color: #333333; /* Dark text for light mode */
         }
 
         .container {
-            background: #141414;
+            background: rgba(20, 20, 20, 0.9); /* Dark mode container */
             border: 2px solid #40E0D0;
             border-radius: 20px;
-            padding: 20px 30px 25px;
-            width: 90%;
+            padding: 20px;
+            width: calc(100% - 40px);
             max-width: 400px;
             text-align: center;
             box-shadow: 0 0 40px rgba(64, 224, 208, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            margin: 20px;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.light-mode .container {
+            background: rgba(255, 255, 255, 0.9); /* Light mode container */
+            box-shadow: 0 0 40px rgba(64, 224, 208, 0.3); /* Lighter shadow */
         }
 
         h1 {
@@ -42,14 +69,22 @@
             text-shadow: 0 0 20px rgba(64, 224, 208, 0.8);
         }
 
+        body.light-mode h1 {
+            text-shadow: 0 0 20px rgba(64, 224, 208, 0.3); /* Lighter shadow */
+        }
+
         .subtitle {
-            color: #B0B0B0;
+            color: #B0B0B0; /* Light mode: #666666 */
             margin-bottom: 15px;
             font-size: clamp(0.8rem, 3vw, 0.9rem);
         }
 
+        body.light-mode .subtitle {
+            color: #666666; /* Lighter text */
+        }
+
         .plan {
-            background: #1A1A1A;
+            background: rgba(26, 26, 26, 0.8); /* Dark mode plan */
             border: 2px solid #40E0D0;
             border-radius: 15px;
             padding: 15px;
@@ -57,11 +92,47 @@
             text-align: left;
             box-shadow: 0 0 25px rgba(64, 224, 208, 0.5);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        body.light-mode .plan {
+            background: rgba(255, 255, 255, 0.9); /* Light mode plan */
+            box-shadow: 0 0 25px rgba(64, 224, 208, 0.2); /* Lighter shadow */
         }
 
         .plan:hover {
             transform: translateY(-5px);
             box-shadow: 0 0 40px rgba(64, 224, 208, 0.8);
+        }
+
+        body.light-mode .plan:hover {
+            box-shadow: 0 0 40px rgba(64, 224, 208, 0.3); /* Lighter shadow */
+        }
+
+        .plan.selected {
+            border-color: #ff12f3;
+        }
+
+        .plan.selected::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 18, 243, 0.3), transparent);
+            animation: waterFlow 2s linear infinite;
+        }
+
+        @keyframes waterFlow {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
         }
 
         .plan-header {
@@ -74,28 +145,40 @@
 
         h2 {
             margin: 5px 0;
-            color: #FFFFFF;
+            color: #FFFFFF; /* Light mode: #333333 */
             font-size: clamp(1rem, 4vw, 1.2rem);
         }
 
+        body.light-mode h2 {
+            color: #333333; /* Dark text for light mode */
+        }
+
         p {
-            color: #A0A0A0;
+            color: #A0A0A0; /* Light mode: #666666 */
             font-size: clamp(0.7rem, 3vw, 0.8rem);
             margin: 0;
         }
 
+        body.light-mode p {
+            color: #666666; /* Lighter text */
+        }
+
         .discount {
-            background-color: #205E5E;
+            background-color: #205E5E; /* Light mode: #E0F7FA */
             color: #40E0D0;
             border-radius: 5px;
             padding: 2px 8px;
             font-size: clamp(0.6rem, 2.5vw, 0.7rem);
         }
 
+        body.light-mode .discount {
+            background-color: #E0F7FA; /* Light mode discount */
+        }
+
         .subscribe-btn {
             background: linear-gradient(45deg, #40E0D0, #20B2AA);
             color: #000;
-            border: none;
+            border: 2px solid transparent;
             border-radius: 25px;
             padding: 12px 45px;
             width: auto;
@@ -105,7 +188,6 @@
             display: inline-block;
             position: relative;
             overflow: hidden;
-            animation: glow 2s infinite alternate ease-in-out;
             margin-top: 10px;
             font-size: clamp(0.8rem, 3vw, 0.9rem);
             transition: background 0.3s ease, transform 0.3s ease;
@@ -115,21 +197,39 @@
         .subscribe-btn:focus {
             background: linear-gradient(45deg, #20B2AA, #40E0D0);
             transform: scale(1.05);
-            animation: none;
+        }
+
+        .subscribe-btn.glow {
+            animation: glow 2s infinite linear;
+        }
+
+        .subscribe-btn.wave-border {
+            border: 2px solid #ff12f3;
+            animation: borderPulse 2s infinite linear;
         }
 
         @keyframes glow {
             0% {
-                box-shadow: 0 0 10px rgba(64, 224, 208, 0.6), 0 0 20px rgba(64, 224, 208, 0.4), 0 0 30px rgba(64, 224, 208, 0.2);
+                box-shadow: 0 0 0 0 rgba(64, 224, 208, 0.7);
             }
             100% {
-                box-shadow: 0 0 20px rgba(64, 224, 208, 0.8), 0 0 40px rgba(64, 224, 208, 0.6), 0 0 60px rgba(64, 224, 208, 0.4);
+                box-shadow: 0 0 0 20px rgba(64, 224, 208, 0);
+            }
+        }
+
+        @keyframes borderPulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 18, 243, 0.7);
+            }
+            100% {
+                box-shadow: 0 0 0 20px rgba(255, 18, 243, 0);
             }
         }
 
         .features {
             text-align: left;
             margin-top: 15px;
+            overflow: hidden;
         }
 
         .features h3 {
@@ -145,11 +245,23 @@
         }
 
         .features ul li {
-            color: #A0A0A0;
+            color: #A0A0A0; /* Light mode: #666666 */
             margin-bottom: 8px;
             padding-left: 20px;
             position: relative;
             font-size: clamp(0.7rem, 3vw, 0.8rem);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        body.light-mode .features ul li {
+            color: #666666; /* Lighter text */
+        }
+
+        .features ul li.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .features ul li::before {
@@ -159,13 +271,32 @@
             position: absolute;
             left: 0;
             top: -5px;
+            transition: color 0.3s ease;
+        }
+
+        .features ul li.extra::before {
+            color: #ff12f3;
+            animation: wave 3s infinite ease-in-out;
+        }
+
+        @keyframes wave {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-1px);
+            }
         }
 
         footer {
             margin-top: 20px;
-            color: #B0B0B0;
+            color: #B0B0B0; /* Light mode: #666666 */
             font-size: clamp(0.7rem, 3vw, 0.8rem);
             text-align: center;
+        }
+
+        body.light-mode footer {
+            color: #666666; /* Lighter text */
         }
 
         footer a {
@@ -176,43 +307,113 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Custom Button (Squircle Shape) - Smaller and on the left */
+        .custom-button {
+            position: absolute;
+            top: 20px;
+            left: 20px; /* Moved to the left */
+            width: 30px; /* Smaller size */
+            height: 30px; /* Smaller size */
+            border-radius: 8px; /* Adjusted for smaller size */
+            background: transparent;
+            border: 2px solid #40E0D0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .custom-button:hover {
+            border-color: #ff12f3;
+            box-shadow: 0 0 10px rgba(255, 18, 243, 0.7);
+        }
+
+        .custom-button::before {
+            content: '';
+            width: 12px; /* Smaller size */
+            height: 12px; /* Smaller size */
+            border-radius: 50%;
+            background: #40E0D0;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        body.light-mode .custom-button::before {
+            background: #ff12f3;
+        }
+
+        /* Light/Dark Mode Button - Smaller and on the right */
+        .mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px; /* Moved to the right */
+            width: 30px; /* Smaller size */
+            height: 30px; /* Smaller size */
+            border-radius: 50%;
+            background: transparent;
+            border: 2px solid #40E0D0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .mode-toggle:hover {
+            border-color: #ff12f3;
+            box-shadow: 0 0 10px rgba(255, 18, 243, 0.7);
+        }
+
+        .mode-toggle::before {
+            content: '';
+            width: 12px; /* Smaller size */
+            height: 12px; /* Smaller size */
+            border-radius: 50%;
+            background: #40E0D0;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        body.light-mode .mode-toggle::before {
+            background: #ff12f3;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Custom Button (Replaces Three Lines Menu) -->
+        <div class="custom-button" id="customButton" onclick="toggleMenu()"></div>
+
+        <!-- Light/Dark Mode Button -->
+        <div class="mode-toggle" id="modeToggle" onclick="toggleMode()"></div>
+
         <h1>MemeMode</h1>
         <div class="subtitle">Subscribe for Nothing</div>
 
+        <!-- Monthly Plan -->
+        <div class="plan monthly" id="monthlyPlan" onclick="selectPlan('monthly')">
+            <div class="plan-header">
+                <span>Monthly Plan</span>
+                <span class="discount">SAVE 20%</span>
+            </div>
+            <h2 id="monthlyPrice">₹98 / month</h2>
+            <p>Access limited features</p>
+        </div>
+
         <!-- Annual Plan -->
-        <div class="plan annual">
+        <div class="plan annual" id="annualPlan" onclick="selectPlan('annual')">
             <div class="plan-header">
                 <span>Annual Plan</span>
                 <span class="discount">SAVE 97%</span>
             </div>
-            <h2>₹124 / month</h2>
+            <h2 id="annualPrice">₹124 / month</h2>
             <p>₹1499 one-time payment</p>
-        </div>
-
-        <!-- Ad Unit Placeholder -->
-        <div style="margin: 20px 0;">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1941496122967255"
-                crossorigin="anonymous"></script>
-            <!-- Example Ad Unit -->
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-1941496122967255"
-                data-ad-slot="1234567890"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
         </div>
 
         <!-- What You Get Section -->
         <div class="features">
             <h3>What You Get with Our Exclusive Plan:</h3>
-            <ul>
+            <ul id="featureList">
                 <li>Premium-quality emptiness</li>
                 <li>VIP membership to the hell</li>
                 <li>Unlimited access to nothing</li>
@@ -227,12 +428,75 @@
         </div>
 
         <!-- Subscribe Button -->
-        <a href="https://rzp.io/rzp/kp0gQKut" class="subscribe-btn" target="_blank" aria-label="Subscribe for ₹1499">Subscribe for ₹1499</a>
+        <a href="https://rzp.io/rzp/rLKa40Ae" class="subscribe-btn" id="subscribe-btn" target="_blank" aria-label="Subscribe for ₹98/month">Subscribe for ₹98/month</a>
     </div>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 MemeMode. All rights reserved. | <a href="https://mememode.shop/privacypolicy" target="_blank">Privacy Policy</a></p>
     </footer>
+
+    <script>
+        // Function to handle plan selection
+        function selectPlan(plan) {
+            const monthlyPlan = document.getElementById('monthlyPlan');
+            const annualPlan = document.getElementById('annualPlan');
+            const featureList = document.getElementById('featureList').children;
+            const subscribeBtn = document.getElementById('subscribe-btn');
+
+            if (plan === 'monthly') {
+                monthlyPlan.classList.add('selected');
+                annualPlan.classList.remove('selected');
+                subscribeBtn.textContent = 'Subscribe for ₹98/month';
+                subscribeBtn.href = 'https://rzp.io/rzp/rLKa40Ae';
+                subscribeBtn.classList.remove('wave-border');
+                subscribeBtn.classList.add('glow'); // Add glow effect
+
+                // Show only the first 4 features
+                for (let i = 0; i < featureList.length; i++) {
+                    if (i < 4) {
+                        setTimeout(() => {
+                            featureList[i].classList.add('visible');
+                            featureList[i].classList.remove('extra');
+                        }, i * 100);
+                    } else {
+                        featureList[i].classList.remove('visible');
+                    }
+                }
+            } else {
+                annualPlan.classList.add('selected');
+                monthlyPlan.classList.remove('selected');
+                subscribeBtn.textContent = 'Subscribe for ₹1499/year';
+                subscribeBtn.href = 'https://rzp.io/rzp/kp0gQKut';
+                subscribeBtn.classList.add('wave-border');
+                subscribeBtn.classList.remove('glow'); // Remove glow effect
+
+                // Show all features with animation
+                for (let i = 0; i < featureList.length; i++) {
+                    setTimeout(() => {
+                        featureList[i].classList.add('visible');
+                        if (i >= 4) {
+                            featureList[i].classList.add('extra');
+                        }
+                    }, i * 100);
+                }
+            }
+        }
+
+        // Function to toggle the custom button
+        function toggleMenu() {
+            const customButton = document.getElementById('customButton');
+            customButton.classList.toggle('active');
+        }
+
+        // Function to toggle theme (light/dark mode)
+        function toggleMode() {
+            const body = document.body;
+            body.classList.toggle('light-mode');
+        }
+
+        // Initialize with Monthly Plan selected
+        selectPlan('monthly');
+    </script>
 </body>
 </html>
