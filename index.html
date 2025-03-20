@@ -7,11 +7,13 @@
     <title>MemeMode Payment Plans</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤡</text></svg>">
     <style>
-*:focus {
+        /* Disable tap highlight effect on mobile */
+body, div, button, a, input, textarea {
+    -webkit-tap-highlight-color: transparent; /* For Safari/Chrome on iOS */
     outline: none !important;
     box-shadow: none !important;
 }
-        /* Disable Text Selection */
+/* Disable Text Selection */
         * {
             -webkit-user-select: none; /* Safari */
             -moz-user-select: none; /* Firefox */
